@@ -1,4 +1,4 @@
-package com.demo.controller;
+package com.demo.service;
 
 import com.demo.util.IpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +12,17 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class SalesService {
 
+    /**
+     * 　在微服务都是以HTTP接口的形式暴露自身服务的，因此在调用远程服务时就必须使用HTTP客户端。
+     * 我们可以使用JDK原生的URLConnection、Apache的Http Client、Netty的异步HTTP Client, Spring的RestTemplate
+     */
     @Autowired
     RestTemplate restTemplate;
 
     @Autowired
     UserFeignClient userFeignClient;//调用user的接口，实例化feign
 
-    private static final String RIBBON_URL = "http://user:8082/user/getUserInfo";
+    private static final String RIBBON_URL = "http://user/user/getUserInfo";
     private static final String IP = IpUtil.getIp();
 
     public String queryGoodsListByRibbon() {

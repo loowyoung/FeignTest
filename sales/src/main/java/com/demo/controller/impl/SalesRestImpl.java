@@ -1,7 +1,7 @@
 package com.demo.controller.impl;
 
 import com.demo.controller.SalesRest;
-import com.demo.controller.SalesService;
+import com.demo.service.SalesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
